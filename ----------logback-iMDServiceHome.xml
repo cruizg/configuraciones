@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<include resource="org/springframework/boot/logging/logback/base.xml" />
+  <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+    <!-- Name of the file where the log messages are written -->
+    <file>myApp.log</file>
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+  <logger name="com.imd.service.home" level="WARN">
+    <appender-ref ref="FILE" />
+  </logger>
+  <logger name="com.imd.service.home.services" level="INFO">
+    <appender-ref ref="FILE" />
+  </logger>
+
+  <!-- Setting the root level of logging to INFO -->
+  <root level="info">
+    <appender-ref ref="FILE" />
+  </root>
+<!--	<appender name="FILE-AUDIT"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>
+				%d{yyyy-MM-dd HH:mm:ss} - %msg%n
+			</Pattern>
+		</encoder>
+
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			 rollover daily 
+			<fileNamePattern>logFile.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>1MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+
+    </appender>-->
+</configuration>
